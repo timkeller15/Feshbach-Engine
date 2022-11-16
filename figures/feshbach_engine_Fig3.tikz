@@ -1,0 +1,29 @@
+\begin{tikzpicture}
+\begin{axis}[%
+width=\columnwidth,
+height=0.618\columnwidth,
+xmin=0.7,
+xmax=1.1,
+xlabel={$g$ (units of $\hbar\omega x_0^3$)},
+ymin=90000,
+ymax=160000,
+ylabel={$E$ (units of $\hbar\omega$)}]
+% BEC Energy in the Thomas-Fermi limit as a function of interaction 
+% E = 5*N*mu/7 = 0.383349169453667*N^(7/5)*g^(2/5) ,  from mu = (15*N*g/(16*pi*sqrt(2))^(2/5)
+\addplot[dashed,domain={0.7:1.1}]{0.383349169453667*1e4^(7/5)*x^(2/5)}; % N = 10 000
+\addplot[dashed,domain={0.7:1.1}]{0.383349169453667*8e3^(7/5)*x^(2/5)}; % N = 8 000
+% Compression Stroke at N = 10 000
+\addplot[thick,domain={0.8:1},postaction={decorate,decoration={markings,mark= at position 0.45 with {\arrow[scale=1.5,rotate=180]{Latex}}}}]{0.383349169453667*1e4^(7/5)*x^(2/5)} node[above=5pt,sloped,pos=.5] {$\langle W_C\rangle$};
+% Expansion Stroke at N = 8 000
+\addplot[thick,domain={0.8:1},postaction={decorate,decoration={markings,mark= at position 0.55 with {\arrow[scale=1.5]{Latex}}}}]{0.383349169453667*8e3^(7/5)*x^(2/5)} node[below=5pt,sloped,pos=.5] {$\langle W_E\rangle$};;
+% Cooling Stroke 
+\draw[thick,postaction={decorate,decoration={markings,mark= at position 0.55 with {\arrow[scale=1.5]{Latex}}}}] (axis cs:1,1.116658840267399e5) -- (axis cs:1,1.526140531852324e5) node[right=5pt,pos=.5] {$\langle Q_{N_+}\rangle$}; 
+% Heating Stroke 
+\draw[thick,postaction={decorate,decoration={markings,mark= at position 0.55 with {\arrow[scale=1.5]{Latex}}}}] (axis cs:0.8,1.395823550334249e5) -- (axis cs:0.8,1.021307457867182e5) node[left=5pt,pos=.5] {$\langle Q_{N_-}\rangle$}; ;
+% Circle End Points 
+\node[color=black,shape=circle,draw=black,fill=black,inner sep=2pt] at (axis cs:0.8,1.021307457867182e5) {};
+\node[color=black,shape=circle,draw=black,fill=black,inner sep=2pt] at (axis cs:0.8,1.395823550334249e5) {};
+\node[color=black,shape=circle,draw=black,fill=black,inner sep=2pt] at (axis cs:1,1.116658840267399e5) {};
+\node[color=black,shape=circle,draw=black,fill=black,inner sep=2pt] at (axis cs:1,1.526140531852324e5) {};
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+\begin{groupplot}[group style = {group size = 3 by 1, x descriptions at=edge bottom,y descriptions at=edge left,horizontal sep=0.0\columnwidth},
+width = 0.28\columnwidth,
+height = 0.26\columnwidth,
+scale only axis,
+xmin=-30,xmax=30,
+ymin=0,ymax=400]
+
+\nextgroupplot[ylabel = {$|\psi|^2$ (units of $x_0^{-1}$)}]
+\addplot[color=black] table[x=x,y=wf1] {feshbach_engine_densities_instability_1D_gi1_gf08_Tf04.dat};
+\node at (axis cs:0,50) {$ t/T_f = 0.24$};
+
+\nextgroupplot[xlabel = {$x$ (units of $x_0$)},]
+\addplot[color=black]  table[x=x,y=wf2] {feshbach_engine_densities_instability_1D_gi1_gf08_Tf04.dat};
+\node at (axis cs:0,50) {$ t/T_f = 0.25$};
+
+\nextgroupplot[]
+\addplot[color=black]  table[x=x,y=wf3] {feshbach_engine_densities_instability_1D_gi1_gf08_Tf04.dat};
+\node at (axis cs:0,50) {$ t/T_f = 0.26$};
+
+\end{groupplot}
+\end{tikzpicture}

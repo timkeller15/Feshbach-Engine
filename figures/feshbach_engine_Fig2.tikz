@@ -1,0 +1,54 @@
+\begin{tikzpicture}
+\begin{groupplot}[group style = {group size = 2 by 2, x descriptions at=edge bottom, horizontal sep=1.5cm, vertical sep=0.25cm},width = 0.5\columnwidth,height = 0.4\columnwidth]
+\nextgroupplot[% Compression Wirr
+xmin=-0.25,
+xmax=10,
+ymode=log,
+ymin=1e-06,
+ymax=100000000,
+ytick={1e-6,1e-2,1e2,1e6}
+]
+\addplot [color=mycolor1, line width=1.0pt,forget plot] table[x=Tf,y=wirrc_sta] {feshbach_engine_wirr_fid_3D_gi1_gf08.dat};
+\addplot [color=mycolor2, line width=1.0pt,forget plot] table[x=Tf,y=wirrc_tra] {feshbach_engine_wirr_fid_3D_gi1_gf08.dat};
+
+
+\nextgroupplot[% Compression Fidelity
+xmin=-0.25,
+xmax=10,
+ymin=0.84,
+ymax=1.02
+]
+\addplot [color=mycolor1, line width=1.0pt,forget plot] table[x=Tf,y=fidc_sta] {feshbach_engine_wirr_fid_3D_gi1_gf08.dat};
+\addplot [color=mycolor2, line width=1.0pt,forget plot] table[x=Tf,y=fidc_tra] {feshbach_engine_wirr_fid_3D_gi1_gf08.dat};
+
+\nextgroupplot[% Expansion Wirr
+xmin=-0.25,
+xmax=10,
+xlabel style={at={(ticklabel cs:1.2)}},
+xlabel={$T_f$ (units of $\omega^{-1}$)},
+ymode=log,
+ymin=1e-06,
+ymax=1e8,
+ytick={1e-6,1e-2,1e2,1e6},
+ylabel style={at={(ticklabel cs:1)}},
+ylabel={$W_\mathrm{irr}$ (units of $\hbar\omega$)}
+]
+\addplot [color=mycolor1, line width=1.0pt,forget plot] table[x=Tf,y=wirre_sta] {feshbach_engine_wirr_fid_3D_gi1_gf08.dat};
+\addplot [color=mycolor2, line width=1.0pt,forget plot] table[x=Tf,y=wirre_tra] {feshbach_engine_wirr_fid_3D_gi1_gf08.dat};
+
+\nextgroupplot[% Expansion Fidelity 
+xmin=-0.25,
+xmax=10,
+ymin=0.84,
+ymax=1.02,
+ylabel style={at={(ticklabel cs:1)}},
+ylabel={Fidelity},
+legend style={at={(0.97,0.03)}, anchor=south east, legend cell align=left, align=left}
+]
+\addplot [color=mycolor1, line width=1.0pt] table[x=Tf,y=fide_sta] {feshbach_engine_wirr_fid_3D_gi1_gf08.dat};
+\addlegendentry{STA};
+\addplot [color=mycolor2, line width=1.0pt] table[x=Tf,y=fide_tra] {feshbach_engine_wirr_fid_3D_gi1_gf08.dat};
+\addlegendentry{TRA}
+
+\end{groupplot}
+\end{tikzpicture}

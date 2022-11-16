@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+\begin{axis}[%
+width=\columnwidth,
+height=0.618\columnwidth,
+xmin=0,
+xmax=1,
+xlabel={$t/T_f$},
+ymin=0.75,
+ymax=1.05,
+ylabel={$g$ (units of $\hbar\omega x_0^3$)},
+legend style={legend cell align=left, align=left,draw=black,fill=none},
+legend columns=2
+]
+\addplot[color=black, dashed, line width=1.0pt] table[x=t,y=Tf1] {feshbach_engine_interaction_ramps_3D_gi1_gf08.dat};
+\addlegendentry{$T_f\rightarrow\infty$}
+
+\addplot[color=mycolor1, line width=1.0pt] table[x=t,y=Tf2] {feshbach_engine_interaction_ramps_3D_gi1_gf08.dat};
+\addlegendentry{$T_f=3$}
+
+\addplot[color=mycolor2, line width=1.0pt] table[x=t,y=Tf3] {feshbach_engine_interaction_ramps_3D_gi1_gf08.dat};
+\addlegendentry{$T_f=2$}
+
+\addplot[color=mycolor3, line width=1.0pt] table[x=t,y=Tf4] {feshbach_engine_interaction_ramps_3D_gi1_gf08.dat};
+\addlegendentry{$T_f=1.5$}
+\end{axis}
+\end{tikzpicture}

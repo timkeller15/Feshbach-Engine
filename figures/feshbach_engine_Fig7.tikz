@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+\begin{axis}[
+width=\columnwidth,
+height=0.618\columnwidth,
+unbounded coords=jump,
+xmin=0,
+xmax=2,
+xlabel={$g_f$ (units of $\hbar\omega x_0^d$)},
+ymin=0,
+ymax=2,
+ylabel={$T_f^\mathrm{min}$ (units of $\omega^{-1}$)},
+legend style={legend cell align=left, align=left}
+]
+
+\addplot [color=mycolor1, draw=none, mark=o, mark size=2pt, mark options={solid, mycolor1}, forget plot] table[x=gf1,y=Tf1] {feshbach_engine_stability_numeric1D.dat};
+
+\addplot [color=mycolor2,draw=none, mark=o, mark size=2pt, mark options={solid, mycolor2}, forget plot] table[x=gf2,y=Tf2] {feshbach_engine_stability_numeric1D.dat};
+
+\addplot [color=mycolor1,line width=1.0pt] table[x=g1,y=T1] {feshbach_engine_stability_analytic.dat};
+\addlegendentry{1D: $g_i=1$}
+
+\addplot [color=mycolor2, line width=1.0pt] table[x=g2,y=T2] {feshbach_engine_stability_analytic.dat};
+\addlegendentry{1D: $g_i=2$}
+
+\addplot [color=mycolor3, draw=none, mark=o, mark size=2pt, mark options={solid, mycolor3}, forget plot] table[x=gf,y=Tf] {feshbach_engine_stability_numeric3D.dat};
+
+\addplot [color=mycolor3, line width=1.0pt] table[x=g3,y=T3] {feshbach_engine_stability_analytic.dat};
+\addlegendentry{3D: $g_i=1$}
+
+\end{axis}
+\end{tikzpicture}%

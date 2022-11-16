@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+\begin{axis}[%
+width=\columnwidth,
+height=0.618\columnwidth,
+xmin=0,
+xmax=1,
+xlabel={$t/T_f$},
+ymin=-2,
+ymax=4,
+ylabel={$g$ (units of $\hbar\omega x_0$)},
+legend style={at={(0.03,0.97)},anchor=north west,legend cell align=left,align=left,draw=black,fill=none}
+]
+\addplot[color=mycolor1,solid,line width=1.0pt] table[x=t,y=Tf1] {feshbach_engine_interaction_ramps_1D_gi1_gf08.dat};
+\addlegendentry{STA - $T_f = 0.5$};
+
+\addplot[color=mycolor2,solid,line width=1.0pt] table[x=t,y=Tf2] {feshbach_engine_interaction_ramps_1D_gi1_gf08.dat};
+\addlegendentry{STA - $T_f = 0.4$};
+
+\addplot[color=mycolor3,solid,line width=1.0pt] table[x=t,y=Tf3] {feshbach_engine_interaction_ramps_1D_gi1_gf08.dat};
+\addlegendentry{TRA};
+
+\draw[dashed] (axis cs:0,-1) -- (axis cs:1,-1);
+\end{axis}
+\end{tikzpicture}%
