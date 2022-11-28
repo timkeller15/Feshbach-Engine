@@ -1,10 +1,12 @@
-This folder contains a modified barebone version of the GPU accelerated Gross-Pitaevskii equation solver GPUE (https://gpue-group.github.io/) as well as the Matlab scripts and resulting data used to create the figures in the publication
+# Feshbach-Engine
 
-"Feshbach engine in the Thomas-Fermi regime"
-Tim Keller, Thomás Fogarty, Jing Li, and Thomas Busch
-Physical Review Research 2, 033335 (2020).
+This folder contains a modified barebone version of the GPU accelerated Gross-Pitaevskii equation solver [GPUE](https://gpue-group.github.io/) as well as the Matlab scripts and resulting data used to create the figures in the publication
 
-GPUE_Ramp can be built with CMake (requires version >= 3.8) from the CMakeLists.txt file via
+*Feshbach engine in the Thomas-Fermi regime*  
+Tim Keller, Thomás Fogarty, Jing Li, and Thomas Busch  
+Physical Review Research **2**, 033335 (2020).
+
+GPUE_Ramp can be built with CMake (requires version >= 3.8) from the *CMakeLists.txt* file via
 
 	cmake .
 	make 
@@ -12,7 +14,7 @@ GPUE_Ramp can be built with CMake (requires version >= 3.8) from the CMakeLists.
 or alternatively directly via make from the included Makefile after specifying the cuda path and architecture of your GPU device in the first two lines.
 See also the GPUE documentation at https://gpue-group.github.io/. 
 
-WARNING: At the time of writing, using CUDA v11 onwards leads to kernel errors during execution. Original results were obtained with CMAKE v3.11.4 and CUDA v10.0.130 on a Tesla P100-SXM2-16GB GPU and re-checked with CUDA v10.2. 
+	WARNING: At the time of writing, using CUDA v11 onwards leads to kernel errors during execution. Original results were obtained with CMAKE v3.11.4 and CUDA v10.0.130 on a Tesla P100-SXM2-16GB GPU and re-checked with CUDA v10.2. 
 
 The 3D simulation data used in Figures 2 and 4 and Figure 7 can be obtained after preparing the necessary files containing the ramp durations e.g. in Matlab via
 
